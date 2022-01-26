@@ -1,0 +1,71 @@
+### Declare a variable  at play and print the value.
+
+- name: Print a variable from play
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+    - name: Print a variable 
+      debug:
+        msg: "URL = {{URL}}"
+
+### Declare a variable at task and print the value.
+
+- name: Print a variable from task
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+    - name: Print a variable 
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: task.google.com 
+
+## Variable data can be loaded from variable file 
+
+- name: Print values from a file 
+  hosts: all 
+  vars_files:
+    - vars01.yml
+  tasks:
+    - name: Print a value from Vars File 
+      debug:
+        msg: URL = {{URL}}
+
+# Which variable will be picked up if you have given both VARS_FILES and then VARS ??
+## VARS get more priority than VARS_FILES.
+
+
+## Variable data can be read from USER as well like read command in shell scripting.
+
+- name: Print values from a file 
+  hosts: all 
+  vars_prompt:
+    - name: URL 
+      prompt: Enter the URL
+      private: no
+  tasks:
+    - name: Print a value from prompt File 
+      debug:
+        msg: URL = {{URL}} 
+
+
+## Variable can be read from inventory file as well 
+
+- name: Print values from a invetnory file 
+  hosts: all 
+  tasks:
+    - name: Print a value from inventory File 
+      debug:
+        msg: URL = {{URL_HOST}} 
+
+
+## Access varibles from facts. 
+
+- name: Access facts.
+  hosts: all
+  tasks:
+    - name: Print total mem of node.
+      debug:
+        msg: OS Family is = {{ansible_os_family}}

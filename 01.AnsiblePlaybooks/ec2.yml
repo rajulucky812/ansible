@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+  gather_facts: False
+  vars:
+    keypair: ansible
+    instance_type: t2.micro
+    security_group:
+    image: "ami-002068ed284fb165b"
+    region: us-east-2
+    user_access_key: "xxxxxxxxxxxxxx"
+    user_secret_key: "xxxxxxxxxxxxxxxx"
+
+  tasks:
+    - name: startup new instance
+      ec2:
+         key_name: "{{ keypair }}"
+         groups: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         assign_public_ip: yes
+         vpc_subnet_id: "subnet-a41b38e8"
+         aws_access_key: "{{ user_access_key }}"
+         aws_secret_key: "{{ user_secret_key }}"
+      register: ec2
+      
+    - debug:
+        var: ec2.instances[0].public_ip
