@@ -1,5 +1,5 @@
 --- # Multiple Tasks on Multiple Servers in Single Playbook
-- hosts: servers
+- hosts: master
   remote_user: ansible
   become: yes
   become_method: sudo
