@@ -1,5 +1,5 @@
 --- # Create File and Add the line to the File
--  hosts: servers
+-  hosts: master
    tasks: 
    - name: create a file if does not exist
      file:
