@@ -1,5 +1,5 @@
 ---# Install http server and Deploy the Html File
--  hosts: servers
+-  hosts: master
    remote_user: ansible
    become: yes
    tasks: 
