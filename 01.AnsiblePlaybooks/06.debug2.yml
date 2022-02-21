@@ -6,7 +6,7 @@
     connection: ssh
     gather_facts: '{{ gather }}'
     vars:
-        myHosts: servers
+        myHosts: master
         gather: yes
         pkg: telnet
     tasks:
