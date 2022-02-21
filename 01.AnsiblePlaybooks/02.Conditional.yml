@@ -1,5 +1,5 @@
 --- # Conditional Based PlayBook
--  hosts: servers
+-  hosts: master
    remote_user: ansible
    become: yes
    become_method: sudo
