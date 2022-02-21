@@ -1,5 +1,5 @@
 --- # Multiple Itmes
--  hosts: servers
+-  hosts: master
    become: yes
    tasks: 
    - name: Multiple Items - {{ item }}
