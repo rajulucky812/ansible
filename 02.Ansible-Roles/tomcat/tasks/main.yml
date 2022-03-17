@@ -1,14 +1,22 @@
 ---
+- name: Install Java 1.8
+  yum: name=java-1.8.0-openjdk state=present
+  
 - name: Install tomcat
-  yum: name={{item}} state=latest
-  with_items:
-   - java-1.8.0-openjdk
-   - tomcat
-   - tomcat-webapps
-   - tomcat-admin-webapps  
-   - tomcat-javadoc
-   - tomcat-docs-webapp
+  yum: name=tomcat state=present
+  
+- name: Install tomcat-webapps
+  yum: name=tomcat-webapps state=present
+  
+- name: Install tomcat-admin-webapps
+  yum: name=tomcat-admin-webapps state=present
 
+- name: Install tomcat-javadoc
+  yum: name=tomcat-javadoc state=present
+  
+- name: Install tomcat-docs-webapp
+  yum: name=tomcat-docs-webapp state=present
+  
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
   notify: restart tomcat
