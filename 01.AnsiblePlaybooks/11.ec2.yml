@@ -4,11 +4,11 @@
   vars:
   gather_facts: False
   vars:
-    keypair: latest
+    keypair: ansible
     instance_type: t2.micro
     security_group:
-    image: "ami-0c02fb55956c7d316"
-    region: us-east-1
+    image: "ami-0c6a6b0e75b2b6ce7"
+    region: us-east-2
     user_access_key: "xxxxxxxxxxxxxxxxxxxx"
     user_secret_key: "xxxxxxxxxxxxxxxxxx"
 
