@@ -12,3 +12,5 @@ source ~/.bash_profile
 pip3 --version
 pip3 install awscli --upgrade --user
 sudo pip install boto
+yum install pip
+sudo pip3 install boto
