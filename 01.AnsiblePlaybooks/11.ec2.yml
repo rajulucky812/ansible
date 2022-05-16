@@ -18,7 +18,7 @@
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          wait: true
-         count: 3
+         count: 1
          region: "{{ region }}"
          assign_public_ip: yes
          vpc_subnet_id: "subnet-0ae6d148a8430e69e"
@@ -27,4 +27,4 @@
       register: ec2
 
     - debug:
-        var: ec2.instances[0].public_ip
+        var: ec2.instances[0].public_ip            
