@@ -1,14 +1,12 @@
 ---
 - hosts: localhost
   connection: local
-  vars:
   gather_facts: False
   vars:
-    keypair: ansible
+    keypair: jenkins
     instance_type: t2.micro
-    security_group:
-    image: "ami-0c6a6b0e75b2b6ce7"
-    region: us-east-2
+    image: "ami-0022f774911c1d690"
+    region: us-east-1
     user_access_key: "xxxxxxxxxxxxxxxxxxxx"
     user_secret_key: "xxxxxxxxxxxxxxxxxx"
 
@@ -20,6 +18,7 @@
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          wait: true
+         count: 3
          region: "{{ region }}"
          assign_public_ip: yes
          vpc_subnet_id: "subnet-0ae6d148a8430e69e"
