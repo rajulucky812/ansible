@@ -12,5 +12,8 @@
     tasks:
     - shell: cat /etc/ansible/hosts
       register: hosts
+      
+    - debug: var=hosts  
+      
     - debug: msg="Hosts File is empty"  
       when: hosts.stdout == ""
