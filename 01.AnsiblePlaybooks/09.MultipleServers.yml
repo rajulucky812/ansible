@@ -11,7 +11,7 @@
   - name: Querying for Telnet Install
     yum: pkg=telnet state=present update_cache=true
  
-- hosts: agent1
+- hosts: agents
   remote_user: ansible
   become: yes
   become_method: sudo
