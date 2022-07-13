@@ -3,11 +3,10 @@
   with_items:
    - java-1.8.0-openjdk
    - tomcat
-   - tomcat-javadoc
-   - tomcat-admin-webapps 
-   - tomcat-tomcat-webapps
+   - tomcat-webapps
+   - tomcat-admin-webapps
    - tomcat-docs-webapp
-   - tomcat-admin-webapps   
+   - tomcat-javadoc 
   
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
